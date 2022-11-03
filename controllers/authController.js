@@ -55,7 +55,7 @@ router.get('/logout', (req, res) => {
       console.error(err)
       res.status(500).json(err)
     } else {
-      res.redirect('/fruits')
+      res.redirect('/posts')
     }
   })
 })

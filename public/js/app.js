@@ -33,18 +33,3 @@ newPostLink.addEventListener('click', () => {
   newPostLink.classList.toggle('active')
   newPosts.classList.toggle('show')
 })
-
-const bgChosen = document.querySelector('.background-chosen')
-const bginput = document.querySelector('.bg-input')
-
-bginput.addEventListener('input', (evt) => {
-  if (bginput.value !== '') {
-    document.body.style.backgroundColor = 'black'
-    bgChosen.classList.add('image-added')
-    // pokeImg.style.backgroundImage = `url(${pokeImgInput.value})`
-    bgChosen.style.backgroundImage = `url(${bginput.value})`
-  } else {
-    pokeImgContainer.classList.remove('image-added')
-    pokeImg.removeAttribute('style')
-  }
-})

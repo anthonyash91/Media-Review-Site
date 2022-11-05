@@ -3,13 +3,13 @@ const Default = require('../layouts/Default.jsx')
 
 class Show extends React.Component {
   render () {
-    const { posts, firstName, lastName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, showPage } = this.props
+    const { posts, fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, showPage } = this.props
     const { imageUrl, title, mainPeople, mp3, rating, review, tag1, tag2, tag3, type, _id, createdAt, updatedAt, comments } = this.props.post
     const options = { year: 'numeric', month: 'long', day: 'numeric' }
     // const tagsToArray = tags.split(' ')
 
     return (
-      <Default firstName={firstName} lastName={lastName} headerBackground={headerBackground} profilePicture={profilePicture} movieNumber={movieNumber} albumNumber={albumNumber} songNumber={songNumber} tvSeriesNumber={tvSeriesNumber} podcastNumber={podcastNumber} bookNumber={bookNumber} showPage='true' postType={type}>
+      <Default fullName={fullName} headerBackground={headerBackground} profilePicture={profilePicture} movieNumber={movieNumber} albumNumber={albumNumber} songNumber={songNumber} tvSeriesNumber={tvSeriesNumber} podcastNumber={podcastNumber} bookNumber={bookNumber} showPage='true' postType={type}>
         <div className='show-container'>
           <div className='post-container'>
             <div className='post-background' style={{ backgroundImage: `url(${imageUrl})` }} />
@@ -24,7 +24,7 @@ class Show extends React.Component {
           </div>
 
           <div className='review'>
-            <form method='POST' action={`/posts/${type}/${_id}?_method=DELETE`}><input type='submit' value={`Delete ${title}`} /></form>
+            {/* <form method='POST' action={`/posts/${type}/${_id}?_method=DELETE`}><input type='submit' value={`Delete ${title}`} /></form> */}
             <div className='rating'>
               {rating === '0'
                 ? <>
@@ -147,10 +147,10 @@ class Show extends React.Component {
             <div className='post-comment'>
               <h1>Leave A Comment</h1>
               <form method='POST' action={`/posts/${type}/${_id}/comments?_method=PUT`}>
-                <input type='url' name='commentProfileIconUrl' placeholder='Avatar Image URL' />
+                <div className='avatar-container' />
+                <input className='avatar-input' type='url' name='commentProfileIconUrl' placeholder='Avatar Image URL' />
                 <input type='text' name='commentName' placeholder='Name' required />
                 <textarea type='text' className='comment-input' name='commentBody' placeholder='Comment' required />
-
                 <input type='submit' value='Submit Comment' />
               </form>
             </div>

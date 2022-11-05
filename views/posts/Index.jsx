@@ -3,10 +3,10 @@ const Default = require('../layouts/Default')
 
 class Index extends React.Component {
   render () {
-    const { posts, firstName, lastName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, indexPage } = this.props
+    const { posts, fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, indexPage } = this.props
     // console.log(collection)
     return (
-      <Default firstName={firstName} lastName={lastName} headerBackground={headerBackground} profilePicture={profilePicture} movieNumber={movieNumber} albumNumber={albumNumber} songNumber={songNumber} tvSeriesNumber={tvSeriesNumber} podcastNumber={podcastNumber} bookNumber={bookNumber} indexPage='true'>
+      <Default fullName={fullName} headerBackground={headerBackground} profilePicture={profilePicture} movieNumber={movieNumber} albumNumber={albumNumber} songNumber={songNumber} tvSeriesNumber={tvSeriesNumber} podcastNumber={podcastNumber} bookNumber={bookNumber} indexPage='true'>
 
         <>
           {/* <a href='/posts/new/movie'>New Movie</a><br />

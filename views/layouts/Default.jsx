@@ -2,13 +2,17 @@ const React = require('react')
 
 class Layout extends React.Component {
   render () {
-    const { firstName, lastName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, currentTag, currentType, showPage, indexPage, postType, newPage } = this.props
+    const { fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, currentTag, currentType, showPage, indexPage, postType, newPage, editPage } = this.props
     return (
       <html lang='en'>
         <head>
           <title>My Media</title>
           <link rel='stylesheet' href='/css/app.css' />
           <script defer src='/js/app.js' />
+          {newPage ? <script defer src='/js/new.js' /> : ''}
+          {indexPage ? <script defer src='/js/index.js' /> : ''}
+          {showPage && !editPage ? <script defer src='/js/show.js' /> : ''}
+          {editPage ? <script defer src='/js/edit.js' /> : ''}
         </head>
 
         <body>
@@ -31,14 +35,14 @@ class Layout extends React.Component {
 
               <div className='pic-and-name'>
                 <div className='profile-icon' style={{ backgroundImage: `url(${profilePicture})` }} />
-                {firstName} {lastName}
+                {fullName}
               </div>
 
               <div id='post-count'>
                 {
                     !currentTag
                       ? movieNumber === 0 && albumNumber === 0 && songNumber === 0 && tvSeriesNumber === 0 && podcastNumber === 0 && bookNumber === 0
-                        ? <span className='nav-title'>You do not have any posts.</span>
+                        ? ''
                         : <>
                           <a className={currentType === 'movie' || postType === 'movie' ? 'active' : ''} href='/posts/category/movie'><span className='icon icon-movie' /><span>{movieNumber} {movieNumber === 0 || movieNumber > 1 ? 'Movies' : 'Movie'}</span></a>
                           <a className={currentType === 'album' || postType === 'album' ? 'active' : ''} href='/posts/category/album'><span className='icon icon-album' /><span>{albumNumber} {albumNumber === 0 || albumNumber > 1 ? 'Albums' : 'Album'}</span></a>
@@ -55,6 +59,9 @@ class Layout extends React.Component {
             </div>
 
             <div id='content-container' className={showPage ? 'show-page' : indexPage ? 'index-page' : ''}>
+              {indexPage && movieNumber === 0 && albumNumber === 0 && songNumber === 0 && tvSeriesNumber === 0 && podcastNumber === 0 && bookNumber === 0
+                ? <span className='nav-title'>You do not have any posts. Click "new posts" above to get started.</span>
+                : ''}
               {this.props.children}
             </div>
           </div>

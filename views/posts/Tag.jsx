@@ -3,13 +3,13 @@ const Default = require('../layouts/Default')
 
 class Tag extends React.Component {
   render () {
-    const { posts, firstName, headerBackground, profilePicture, lastName, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, currentTag } = this.props
+    const { posts, fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, currentTag } = this.props
     const tag = this.props.tag
 
     const tagName = posts.filter(object => object.tag1 === tag || object.tag2 === tag || object.tag3 === tag || object.type === tag)
 
     return (
-      <Default firstName={firstName} lastName={lastName} headerBackground={headerBackground} profilePicture={profilePicture} movieNumber={movieNumber} albumNumber={albumNumber} songNumber={songNumber} tvSeriesNumber={tvSeriesNumber} podcastNumber={podcastNumber} bookNumber={bookNumber} currentTag={tag} indexPage='true'>
+      <Default fullName={fullName} headerBackground={headerBackground} profilePicture={profilePicture} movieNumber={movieNumber} albumNumber={albumNumber} songNumber={songNumber} tvSeriesNumber={tvSeriesNumber} podcastNumber={podcastNumber} bookNumber={bookNumber} currentTag={tag} indexPage='true'>
 
         <>
           {

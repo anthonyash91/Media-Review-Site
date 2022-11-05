@@ -20,8 +20,6 @@ body {
   width: 450px;
 }
 
-
-
 input:focus, textarea:focus, select:focus {
   outline: none;
 }
@@ -38,7 +36,7 @@ input[type='text'], input[type='password'], input[type='url'], textarea, select 
   color: rgba(0,0,0,.5);
   font: 700 18px 'Noto Sans JP', sans-serif;
   margin-bottom: 10px;
-  padding: 10px 35px 12px 15px;
+  padding: 10px 45px 12px 15px;
   transition: .3s;
   width: 100%;
 }
@@ -56,6 +54,11 @@ input[type='submit'], .signup {
   cursor: pointer;
   font: 700 18px 'Noto Sans JP', sans-serif;
   padding: 10px 15px 12px 15px;
+  transition: background-color .2s;
+}
+
+input[type='submit']:hover {
+  background-color: #333!important;
 }
 
 input[type='submit']:active, .signup:active {
@@ -97,15 +100,58 @@ input:invalid, textarea:invalid {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 4px;
+  transition: .2s;
+}
+
+.background-chosen {
+  align-items: center;
+  background-color: rgba(0,0,0,.3);
+  background-size: cover;
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 700;
+  height: 0;
+  justify-content: center;
+  position: relative;
+}
+
+form {
+  position: relative;
 }
 
 .picture-chosen {
+  background-color: #E2B82A;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover; 
+  background-position: center;
+  border: 3px solid #E2B82A; 
+  border-radius: 99px;
+  box-shadow: 0 0 40px rgba(0,0,0,.5);
+  height: 0;
+  opacity: 0;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.1);
+  width: 80px;
 }
 
-.background-chosen.image-added, .picture-chosen.image-added {
-  height: 150px;
+.name {
+  line-height: 25px;
+  margin-top: 5px;
+  opacity: 0;
+}
+
+.image-added .name {
+  opacity: 1;
+}
+
+.background-chosen.image-added {
+  height: 180px;
   margin-bottom: 10px;
   width: 100%;
+}
+
+.picture-chosen.image-added {
+  height: 80px;
+  opacity: 1;
 }

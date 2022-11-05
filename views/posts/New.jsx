@@ -3,17 +3,17 @@ const Layout = require('../layouts/Default.jsx')
 
 class New extends React.Component {
   render () {
-    const { posts, firstName, lastName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, showPage, newPage } = this.props
+    const { posts, fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, showPage, newPage } = this.props
     const postType = this.props.postType
     const capPostType = postType.toLowerCase().split(' ').map((letter) => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')
 
     return (
-      <Layout firstName={firstName} lastName={lastName} headerBackground={headerBackground} profilePicture={profilePicture} movieNumber={movieNumber} albumNumber={albumNumber} songNumber={songNumber} tvSeriesNumber={tvSeriesNumber} podcastNumber={podcastNumber} bookNumber={bookNumber} showPage='true' newPage='true'>
+      <Layout fullName={fullName} headerBackground={headerBackground} profilePicture={profilePicture} movieNumber={movieNumber} albumNumber={albumNumber} songNumber={songNumber} tvSeriesNumber={tvSeriesNumber} podcastNumber={podcastNumber} bookNumber={bookNumber} showPage='true' newPage='true'>
         <div className='show-container'>
           <h1>Add a New {postType === 'tvseries' ? 'TV Show' : capPostType}</h1><br />
           <form method='POST' action='/posts'>
             <input
-              type='url' name='imageUrl' placeholder={postType === 'movie'
+              type='url' className='poster-input' name='imageUrl' placeholder={postType === 'movie'
                 ? 'Movie Poster URL'
                 : postType === 'album'
                   ? 'Album Art URL'
@@ -27,8 +27,14 @@ class New extends React.Component {
                           ? 'Book Cover URL'
                           : ''} required
             />
+
+            <div className='poster-container'>
+              <div className='preview-background' />
+              <div className='preview-foreground' />
+            </div>
+
             <input
-              type='text' name='title' placeholder={postType === 'movie'
+              className='media-title' type='text' name='title' placeholder={postType === 'movie'
                 ? 'Movie Title'
                 : postType === 'album'
                   ? 'Album Title'
@@ -79,7 +85,7 @@ class New extends React.Component {
               <input className='tag-input' type='text' name='tag3' placeholder='Tag Three' required />
             </div>
             <input type='hidden' name='type' value={postType} />
-            <input type='submit' value='Add Movie' />
+            <input className='media-submit' type='submit' value={postType === 'tvseries' ? 'Add TV Show' : `Add ${capPostType}`} />
           </form>
         </div>
       </Layout>

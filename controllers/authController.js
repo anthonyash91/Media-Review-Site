@@ -3,6 +3,10 @@ const User = require('../models/user')
 const bcrypt = require('bcryptjs')
 const router = express.Router()
 
+router.get('/', (req, res) => {
+  res.redirect('/user/login')
+})
+
 router.get('/signup', (req, res) => {
   res.render('user/SignUp.jsx')
 })
@@ -35,8 +39,7 @@ router.post('/login', async (req, res) => {
         if (result) {
           req.session.username = username
           req.session.loggedIn = true
-          req.session.firstName = user.firstName
-          req.session.lastName = user.lastName
+          req.session.fullName = user.fullName
           req.session.headerBackground = user.headerBackground
           req.session.profilePicture = user.profilePicture
 

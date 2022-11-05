@@ -3,18 +3,19 @@ const Layout = require('../layouts/Default.jsx')
 
 class Edit extends React.Component {
   render () {
-    const { posts, firstName, lastName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, showPage } = this.props
+    const { posts, fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, showPage } = this.props
     const { imageUrl, title, mainPeople, mp3, rating, review, tag1, tag2, tag3, type, _id } = this.props.post
     const postType = this.props.postType
     const capPostType = postType.toLowerCase().split(' ').map((letter) => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')
 
     return (
-      <Layout firstName={firstName} lastName={lastName} headerBackground={headerBackground} profilePicture={profilePicture} movieNumber={movieNumber} albumNumber={albumNumber} songNumber={songNumber} tvSeriesNumber={tvSeriesNumber} podcastNumber={podcastNumber} bookNumber={bookNumber} showPage='true' postType={type}>
+      <Layout fullName={fullName} headerBackground={headerBackground} profilePicture={profilePicture} movieNumber={movieNumber} albumNumber={albumNumber} songNumber={songNumber} tvSeriesNumber={tvSeriesNumber} podcastNumber={podcastNumber} bookNumber={bookNumber} showPage='true' editPage='true' postType={type}>
         <div className='show-container'>
           <h1>Edit {title}</h1><br />
           <form method='POST' action={`/posts/${postType}/${_id}?_method=PUT`}>
+
             <input
-              type='url' name='imageUrl' placeholder={postType === 'movie'
+              type='url' className='poster-input' name='imageUrl' placeholder={postType === 'movie'
                 ? 'Movie Poster URL'
                 : postType === 'album'
                   ? 'Album Art URL'
@@ -28,6 +29,10 @@ class Edit extends React.Component {
                           ? 'Book Cover URL'
                           : ''} defaultValue={imageUrl} required
             />
+            <div className='poster-container image-added'>
+              <div className='preview-background' style={{ backgroundImage: `url(${imageUrl})` }} />
+              <div className='preview-foreground' style={{ backgroundImage: `url(${imageUrl})` }} />
+            </div>
             <input
               type='text' name='title' placeholder={postType === 'movie'
                 ? 'Movie Title'

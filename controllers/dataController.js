@@ -19,8 +19,7 @@ const dataController = {
 
         res.locals.data.tag = req.params.tag
         res.locals.data.posts = foundPosts
-        res.locals.data.firstName = req.session.firstName
-        res.locals.data.lastName = req.session.lastName
+        res.locals.data.fullName = req.session.fullName
         res.locals.data.headerBackground = req.session.headerBackground
         res.locals.data.profilePicture = req.session.profilePicture
 

@@ -35,7 +35,12 @@ router.post('/login', async (req, res) => {
         if (result) {
           req.session.username = username
           req.session.loggedIn = true
-          res.redirect('/fruits')
+          req.session.firstName = user.firstName
+          req.session.lastName = user.lastName
+          req.session.headerBackground = user.headerBackground
+          req.session.profilePicture = user.profilePicture
+
+          res.redirect('/posts')
         } else {
           res.json({ error: "password doesn't match" })
         }

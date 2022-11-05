@@ -12,8 +12,6 @@ router.use((req, res, next) => {
   }
 })
 
-router.get('/', dataController.index, viewController.index) // index
-
 // api routes
 router.get('/api', dataController.index, apiController.index) // index
 router.delete('/api/:id', dataController.destroy, apiController.show) // delete
@@ -22,12 +20,15 @@ router.post('/api', dataController.create, apiController.show) // create
 router.get('/api/:id', dataController.show, apiController.show) // Show
 
 // non api routes
-router.get('/new/', viewController.view) // new
-router.delete('/:id', dataController.destroy, viewController.redirectHome) // delete
-router.put('/:id/comments', dataController.updateComment, viewController.redirectShow) // comment
-router.put('/:id', dataController.update, viewController.redirectShow) // update
+router.get('/', dataController.index, viewController.index) // index
+router.get('/new/:postType', dataController.newPost, dataController.index, viewController.newPost) // new
+router.delete('/:postType/:id', dataController.destroy, viewController.redirectHome) // delete
+router.put('/:postType/:id/comments', dataController.updateComment, viewController.redirectComment) // comment
+router.put('/:postType/:id', dataController.update, viewController.redirectShow) // update
 router.post('/', dataController.create, viewController.redirectHome) // create
-router.get('/:id/edit', dataController.show, viewController.edit) // edit
-router.get('/:id', dataController.show, viewController.show) // show
+router.get('/:postType/:id/edit', dataController.show, dataController.index, viewController.edit) // edit
+router.get('/tag/:tag', dataController.index, viewController.tag) // new
+router.get('/category/:tag', dataController.index, viewController.category) // new
+router.get('/:postType/:id/', dataController.show, dataController.index, viewController.show) // posts show pages
 
 module.exports = router

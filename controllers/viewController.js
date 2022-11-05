@@ -7,8 +7,8 @@ const viewController = {
     res.render('posts/Index', res.locals.data)
   },
   // new
-  view (req, res, next) {
-    res.render('posts/New', req.params.type)
+  newPost (req, res, next) {
+    res.render('posts/New', res.locals.data)
   },
   // edit
   edit (req, res, next) {
@@ -18,12 +18,24 @@ const viewController = {
   show (req, res, next) {
     res.render('posts/Show', res.locals.data)
   },
+  tag (req, res, next) {
+    res.render('posts/Tag', res.locals.data)
+  },
+  category (req, res, next) {
+    res.render('posts/Category', res.locals.data)
+  },
   redirectHome (req, res, next) {
     res.redirect(RESOURCE_PATH)
   },
   redirectShow (req, res, next) {
-    const fruitId = req.params.id || res.locals.data.fruit._id
-    res.redirect(`${RESOURCE_PATH}/${fruitId}`)
+    const postId = req.params.id || res.locals.data.post._id
+    const type = req.params.postType || res.locals.data.postType
+    res.redirect(`${RESOURCE_PATH}/${type}/${postId}`)
+  },
+  redirectComment (req, res, next) {
+    const postId = req.params.id || res.locals.data.post._id
+    const type = req.params.postType || res.locals.data.postType
+    res.redirect(`${RESOURCE_PATH}/${type}/${postId}#comments`)
   }
 }
 

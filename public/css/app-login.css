@@ -1,0 +1,111 @@
+@import url("https://i.icomoon.io/public/temp/2eb8c1c5ed/UntitledProject/style.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  align-items: center;
+  background-color: #f5f5f5;
+  display: flex;
+  font-family: 'Noto Sans JP', sans-serif;
+  height: 100vh;
+  justify-content: center;
+}
+
+#container {
+  width: 450px;
+}
+
+
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: rgba(0,0,0,.5);
+  font: 700 18px 'Noto Sans JP', sans-serif;
+}
+
+input[type='text'], input[type='password'], input[type='url'], textarea, select {
+  background-color: #f5f5f5;
+  border: 3px solid rgba(0,0,0,.1);
+  border-radius: 4px;
+  color: rgba(0,0,0,.5);
+  font: 700 18px 'Noto Sans JP', sans-serif;
+  margin-bottom: 10px;
+  padding: 10px 35px 12px 15px;
+  transition: .3s;
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+input[type='submit'], .signup {
+  background-color: #E2B82A!important;
+  border: 3px solid rgba(0,0,0,.1); 
+  border-radius: 4px;
+  color: #f5f5f5;
+  cursor: pointer;
+  font: 700 18px 'Noto Sans JP', sans-serif;
+  padding: 10px 15px 12px 15px;
+}
+
+input[type='submit']:active, .signup:active {
+  transform: translate(0,2px);
+}
+
+.signup {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+a {
+  color: #E2B82A;
+  font-weight: 700;
+  text-decoration-thickness: 3px;
+  transition: .2s;
+}
+
+a:hover {
+  color: #333;
+}
+
+input:required:valid, textarea:valid {
+  background: url("../icons/check-tick-svgrepo-com.svg") no-repeat 98% 50%;
+  background-size: 25px;
+}
+
+input:valid {
+  background: url("../icons/check-tick-svgrepo-com1.svg") no-repeat 98% 50%;
+  background-size: 25px;
+}
+
+input:invalid, textarea:invalid {
+  background: url("../icons/exclamation-triangle-fill.svg") no-repeat 98% 50%;
+  background-size: 25px;
+}
+
+.background-chosen, .picture-chosen {
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+}
+
+.picture-chosen {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.background-chosen.image-added, .picture-chosen.image-added {
+  height: 150px;
+  margin-bottom: 10px;
+  width: 100%;
+}

@@ -1,22 +1,19 @@
 const React = require('react')
-const Default = require('../layouts/Default')
+const LoginOut = require('../layouts/LoginOut')
 
 class Login extends React.Component {
   render () {
     return (
-    // <Default>
-      <form action='/user/login' method='POST'>
-        <fieldset>
-          <legend>New User</legend>
-          <input type='hidden' name='firstName' />
-          <input type='hidden' name='lastName' />
-          <label>USERNAME: <input type='text' name='username' required /> </label>
-          <label>PASSWORD: <input type='password' name='password' required />
-          </label>
-          <input type='submit' value='Login Account' />
-        </fieldset>
-      </form>
-    // </Default>
+      <LoginOut>
+        <h1>MyMedia Login</h1><br />
+        <form action='/user/login' method='POST'>
+          <input type='text' name='username' placeholder='Username' required />
+          <input type='password' name='password' placeholder='Password' required />
+          <input type='submit' value='Login' />
+        </form>
+        <br />
+        Not yet a user? <a href='/user/signup'>Sign up!</a>
+      </LoginOut>
     )
   }
 }

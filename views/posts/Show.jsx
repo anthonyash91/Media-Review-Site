@@ -24,7 +24,7 @@ class Show extends React.Component {
           </div>
 
           <div className='review'>
-          <form method='POST' action={`/posts/${type}/${_id}?_method=DELETE`}><input type='submit' value={`Delete ${title}`} /></form>
+            <form method='POST' action={`/posts/${type}/${_id}?_method=DELETE`}><input type='submit' value={`Delete ${title}`} /></form>
             <div className='rating'>
               {rating === '0'
                 ? <>

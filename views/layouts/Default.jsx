@@ -38,7 +38,7 @@ class Layout extends React.Component {
                 {
                     !currentTag
                       ? movieNumber === 0 && albumNumber === 0 && songNumber === 0 && tvSeriesNumber === 0 && podcastNumber === 0 && bookNumber === 0
-                        ? 'You do not have any posts'
+                        ? <span className='nav-title'>You do not have any posts.</span>
                         : <>
                           <a className={currentType === 'movie' || postType === 'movie' ? 'active' : ''} href='/posts/category/movie'><span className='icon icon-movie' /><span>{movieNumber} {movieNumber === 0 || movieNumber > 1 ? 'Movies' : 'Movie'}</span></a>
                           <a className={currentType === 'album' || postType === 'album' ? 'active' : ''} href='/posts/category/album'><span className='icon icon-album' /><span>{albumNumber} {albumNumber === 0 || albumNumber > 1 ? 'Albums' : 'Album'}</span></a>

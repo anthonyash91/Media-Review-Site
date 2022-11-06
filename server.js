@@ -32,6 +32,11 @@ app.use(
 )
 
 app.use(methodOverride('_method'))
+
+app.get('/', (req, res) => {
+  res.redirect('/posts')
+})
+
 app.use(express.static('public'))
 app.use('/posts', require('./controllers/routeController'))
 app.use('/user', require('./controllers/authController'))

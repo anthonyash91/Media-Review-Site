@@ -1,4 +1,5 @@
 require('dotenv').config()
+const PORT = process.env.PORT || 3333
 
 const express = require('express')
 const methodOverride = require('method-override')
@@ -35,6 +36,6 @@ app.use(express.static('public'))
 app.use('/posts', require('./controllers/routeController'))
 app.use('/user', require('./controllers/authController'))
 
-app.listen(3333, () => {
+app.listen(PORT, () => {
   console.log('listening on port 3333')
 })

@@ -274,7 +274,9 @@ audio::-webkit-media-controls-current-time-display {
   opacity: 0;
 }
 
-audio::-webkit-media-controls-play-button, audio::-webkit-media-controls-enclosure {background-color: transparent;}
+audio::-webkit-media-controls-play-button, audio::-webkit-media-controls-enclosure {
+  background-color: transparent;
+}
 
 .audio-player:hover {
   background-color: #255ADF;

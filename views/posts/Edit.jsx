@@ -3,10 +3,9 @@ const Layout = require('../layouts/Default.jsx')
 
 class Edit extends React.Component {
   render () {
-    const { posts, fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, showPage } = this.props
+    const { fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber } = this.props
     const { imageUrl, title, mainPeople, mp3, rating, review, tag1, tag2, tag3, type, _id } = this.props.post
     const postType = this.props.postType
-    const capPostType = postType.toLowerCase().split(' ').map((letter) => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')
 
     return (
       <Layout fullName={fullName} headerBackground={headerBackground} profilePicture={profilePicture} movieNumber={movieNumber} albumNumber={albumNumber} songNumber={songNumber} tvSeriesNumber={tvSeriesNumber} podcastNumber={podcastNumber} bookNumber={bookNumber} showPage='true' editPage='true' postType={type}>

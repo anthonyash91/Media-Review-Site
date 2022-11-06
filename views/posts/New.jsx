@@ -3,7 +3,7 @@ const Layout = require('../layouts/Default.jsx')
 
 class New extends React.Component {
   render () {
-    const { posts, fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, showPage, newPage } = this.props
+    const { fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber } = this.props
     const postType = this.props.postType
     const capPostType = postType.toLowerCase().split(' ').map((letter) => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')
 

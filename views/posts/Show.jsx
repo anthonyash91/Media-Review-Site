@@ -3,7 +3,7 @@ const Default = require('../layouts/Default.jsx')
 
 class Show extends React.Component {
   render () {
-    const { posts, fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber, showPage } = this.props
+    const { fullName, headerBackground, profilePicture, movieNumber, albumNumber, songNumber, tvSeriesNumber, podcastNumber, bookNumber } = this.props
     const { imageUrl, title, mainPeople, mp3, rating, review, tag1, tag2, tag3, type, _id, createdAt, updatedAt, comments } = this.props.post
     const options = { year: 'numeric', month: 'long', day: 'numeric' }
     // const tagsToArray = tags.split(' ')
@@ -27,93 +27,27 @@ class Show extends React.Component {
             {/* <form method='POST' action={`/posts/${type}/${_id}?_method=DELETE`}><input type='submit' value={`Delete ${title}`} /></form> */}
             <div className='rating'>
               {rating === '0'
-                ? <>
-                  <span className='icon-star-empty' />
-                  <span className='icon-star-empty' />
-                  <span className='icon-star-empty' />
-                  <span className='icon-star-empty' />
-                  <span className='icon-star-empty' />
-                  </>
+                ? <><span className='icon-star-empty' /><span className='icon-star-empty' /><span className='icon-star-empty' /><span className='icon-star-empty' /><span className='icon-star-empty' /></>
                 : rating === '0.5'
-                  ? <>
-                    <span className='icon-star-half' />
-                    <span className='icon-star-empty' />
-                    <span className='icon-star-empty' />
-                    <span className='icon-star-empty' />
-                    <span className='icon-star-empty' />
-                    </>
+                  ? <><span className='icon-star-half' /><span className='icon-star-empty' /><span className='icon-star-empty' /><span className='icon-star-empty' /><span className='icon-star-empty' /></>
                   : rating === '1'
-                    ? <>
-                      <span className='icon-star-full' />
-                      <span className='icon-star-empty' />
-                      <span className='icon-star-empty' />
-                      <span className='icon-star-empty' />
-                      <span className='icon-star-empty' />
-                      </>
+                    ? <><span className='icon-star-full' /><span className='icon-star-empty' /><span className='icon-star-empty' /><span className='icon-star-empty' /><span className='icon-star-empty' /></>
                     : rating === '1.5'
-                      ? <>
-                        <span className='icon-star-full' />
-                        <span className='icon-star-half' />
-                        <span className='icon-star-empty' />
-                        <span className='icon-star-empty' />
-                        <span className='icon-star-empty' />
-                        </>
+                      ? <><span className='icon-star-full' /><span className='icon-star-half' /><span className='icon-star-empty' /><span className='icon-star-empty' /><span className='icon-star-empty' /></>
                       : rating === '2'
-                        ? <>
-                          <span className='icon-star-full' />
-                          <span className='icon-star-full' />
-                          <span className='icon-star-empty' />
-                          <span className='icon-star-empty' />
-                          <span className='icon-star-empty' />
-                          </>
+                        ? <><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-empty' /><span className='icon-star-empty' /><span className='icon-star-empty' /></>
                         : rating === '2.5'
-                          ? <>
-                            <span className='icon-star-full' />
-                            <span className='icon-star-full' />
-                            <span className='icon-star-half' />
-                            <span className='icon-star-empty' />
-                            <span className='icon-star-empty' />
-                            </>
+                          ? <><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-half' /><span className='icon-star-empty' /><span className='icon-star-empty' /></>
                           : rating === '3'
-                            ? <>
-                              <span className='icon-star-full' />
-                              <span className='icon-star-full' />
-                              <span className='icon-star-full' />
-                              <span className='icon-star-empty' />
-                              <span className='icon-star-empty' />
-                              </>
+                            ? <><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-empty' /><span className='icon-star-empty' /></>
                             : rating === '3.5'
-                              ? <>
-                                <span className='icon-star-full' />
-                                <span className='icon-star-full' />
-                                <span className='icon-star-full' />
-                                <span className='icon-star-half' />
-                                <span className='icon-star-empty' />
-                                </>
+                              ? <><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-half' /><span className='icon-star-empty' /></>
                               : rating === '4'
-                                ? <>
-                                  <span className='icon-star-full' />
-                                  <span className='icon-star-full' />
-                                  <span className='icon-star-full' />
-                                  <span className='icon-star-full' />
-                                  <span className='icon-star-empty' />
-                                  </>
+                                ? <><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-empty' /></>
                                 : rating === '4.5'
-                                  ? <>
-                                    <span className='icon-star-full' />
-                                    <span className='icon-star-full' />
-                                    <span className='icon-star-full' />
-                                    <span className='icon-star-full' />
-                                    <span className='icon-star-half' />
-                                    </>
+                                  ? <><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-half' /></>
                                   : rating === '5'
-                                    ? <>
-                                      <span className='icon-star-full' />
-                                      <span className='icon-star-full' />
-                                      <span className='icon-star-full' />
-                                      <span className='icon-star-full' />
-                                      <span className='icon-star-full' />
-                                      </>
+                                    ? <><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-full' /><span className='icon-star-full' /></>
                                     : ''}
             </div>
             <h1>{title}</h1>
@@ -146,10 +80,18 @@ class Show extends React.Component {
         }
             <div className='post-comment'>
               <h1>Leave A Comment</h1>
+
+              <div className='preview comment'>
+                <div className='preview comment-icon' />
+                <div className='preview comment-content'>
+                  <p><strong>Name:</strong> <span className='preview-name' /></p>
+                  <p><strong>Comment:</strong> <span className='preview-comment-body' /> </p>
+                </div>
+              </div>
+
               <form method='POST' action={`/posts/${type}/${_id}/comments?_method=PUT`}>
-                <div className='avatar-container' />
                 <input className='avatar-input' type='url' name='commentProfileIconUrl' placeholder='Avatar Image URL' />
-                <input type='text' name='commentName' placeholder='Name' required />
+                <input className='comment-name-input' type='text' name='commentName' placeholder='Name' required />
                 <textarea type='text' className='comment-input' name='commentBody' placeholder='Comment' required />
                 <input type='submit' value='Submit Comment' />
               </form>

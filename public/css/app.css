@@ -412,6 +412,19 @@ audio::-webkit-media-controls-play-button, audio::-webkit-media-controls-enclosu
   position: relative;
 }
 
+.preview.comment {
+  border: none;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  transition: .2s ease-in-out;
+}
+
+.preview.comment.show {
+  margin-bottom: 20px;
+  max-height: 500px;
+}
+
 .comment-icon {
   background-position: center;
   background-repeat: no-repeat;
@@ -419,6 +432,10 @@ audio::-webkit-media-controls-play-button, audio::-webkit-media-controls-enclosu
   height: 80px;
   margin-right: 20px;
   width: 80px;
+}
+
+.preview.comment-content {
+  width: 87%;
 }
 
 .comment-date {
@@ -621,8 +638,6 @@ form {
 .icon-star-full:before {
   content: "\e9d9";
 }
-
-
 
 input:required:valid, textarea:valid {
   background: url("../icons/check-tick-svgrepo-com.svg") no-repeat 98% 50%;

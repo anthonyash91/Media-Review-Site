@@ -10,7 +10,6 @@ class Layout extends React.Component {
           <link rel='stylesheet' href='/css/app.css' />
           <script defer src='/js/app.js' />
           {newPage ? <script defer src='/js/new.js' /> : ''}
-          {indexPage ? <script defer src='/js/index.js' /> : ''}
           {showPage && !editPage ? <script defer src='/js/show.js' /> : ''}
           {editPage ? <script defer src='/js/edit.js' /> : ''}
         </head>
@@ -38,23 +37,11 @@ class Layout extends React.Component {
                 {fullName}
               </div>
 
-              <div id='post-count'>
-                {
-                    !currentTag
-                      ? movieNumber === 0 && albumNumber === 0 && songNumber === 0 && tvSeriesNumber === 0 && podcastNumber === 0 && bookNumber === 0
-                        ? ''
-                        : <>
-                          <a className={currentType === 'movie' || postType === 'movie' ? 'active' : ''} href='/posts/category/movie'><span className='icon icon-movie' /><span>{movieNumber} {movieNumber === 0 || movieNumber > 1 ? 'Movies' : 'Movie'}</span></a>
-                          <a className={currentType === 'album' || postType === 'album' ? 'active' : ''} href='/posts/category/album'><span className='icon icon-album' /><span>{albumNumber} {albumNumber === 0 || albumNumber > 1 ? 'Albums' : 'Album'}</span></a>
-                          <a className={currentType === 'song' || postType === 'song' ? 'active' : ''} href='/posts/category/song'><span className='icon icon-song' /><span>{songNumber} {songNumber === 0 || songNumber > 1 ? 'Songs' : 'Song'}</span></a>
-                          <a className={currentType === 'tvseries' || postType === 'tvseries' ? 'active' : ''} href='/posts/category/tvseries'><span className='icon icon-tvseries' /><span>{tvSeriesNumber} {tvSeriesNumber === 0 || tvSeriesNumber > 1 ? 'TV Shows' : 'TV Show'}</span></a>
-                          <a className={currentType === 'podcast' || postType === 'podcast' ? 'active' : ''} href='/posts/category/podcast'><span className='icon icon-podcast' /><span>{podcastNumber} {podcastNumber === 0 || podcastNumber > 1 ? 'Podcasts' : 'Podcast'}</span></a>
-                          <a className={currentType === 'book' || postType === 'book' ? 'active' : ''} href='/posts/category/book'><span className='icon icon-book' /><span>{bookNumber} {bookNumber === 0 || bookNumber > 1 ? 'Books' : 'Book'}</span></a>
-                        </>
-                      : currentTag
-                        ? <span className='nav-title'>Showing posts tagged with "<i>{currentTag}</i>".</span>
-                        : ''
-                  }
+              <div id='post-count'>{!currentTag
+                ? movieNumber === 0 && albumNumber === 0 && songNumber === 0 && tvSeriesNumber === 0 && podcastNumber === 0 && bookNumber === 0
+                  ? ''
+                  : <><a className={currentType === 'movie' || postType === 'movie' ? 'active' : ''} href='/posts/category/movie'><span className='icon icon-movie' /><span>{movieNumber} {movieNumber === 0 || movieNumber > 1 ? 'Movies' : 'Movie'}</span></a><a className={currentType === 'album' || postType === 'album' ? 'active' : ''} href='/posts/category/album'><span className='icon icon-album' /><span>{albumNumber} {albumNumber === 0 || albumNumber > 1 ? 'Albums' : 'Album'}</span></a><a className={currentType === 'song' || postType === 'song' ? 'active' : ''} href='/posts/category/song'><span className='icon icon-song' /><span>{songNumber} {songNumber === 0 || songNumber > 1 ? 'Songs' : 'Song'}</span></a><a className={currentType === 'tvseries' || postType === 'tvseries' ? 'active' : ''} href='/posts/category/tvseries'><span className='icon icon-tvseries' /><span>{tvSeriesNumber} {tvSeriesNumber === 0 || tvSeriesNumber > 1 ? 'TV Shows' : 'TV Show'}</span></a><a className={currentType === 'podcast' || postType === 'podcast' ? 'active' : ''} href='/posts/category/podcast'><span className='icon icon-podcast' /><span>{podcastNumber} {podcastNumber === 0 || podcastNumber > 1 ? 'Podcasts' : 'Podcast'}</span></a><a className={currentType === 'book' || postType === 'book' ? 'active' : ''} href='/posts/category/book'><span className='icon icon-book' /><span>{bookNumber} {bookNumber === 0 || bookNumber > 1 ? 'Books' : 'Book'}</span></a></>
+                : currentTag ? <span className='nav-title'>Showing posts tagged with "<i>{currentTag}</i>".</span> : ''}
               </div>
             </div>
 

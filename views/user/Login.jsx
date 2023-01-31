@@ -6,6 +6,9 @@ class Login extends React.Component {
     return (
       <LoginOut>
         <h1>MyMedia Login</h1><br />
+      Login with these credentials:<br />
+      Username: me@anthonyashcraft.com<br />
+      Password: William2309!!<br /><br />
         <form action='/user/login' method='POST'>
           <input type='text' name='username' placeholder='Username' required />
           <input type='password' name='password' placeholder='Password' required />

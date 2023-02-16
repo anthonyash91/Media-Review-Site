@@ -1,7 +1,7 @@
 
 # MyMedia - Media Review Site
 
-Heroku Deployment: [Deployed App](https://mymedia-review-site.herokuapp.com/)
+Heroku Deployment: [Deployed App](https://mymedia-ga.herokuapp.com/)
 
 MyMedia is my take on a Letterboxd-esque website that allows users to post and review various types of media, like movies, albums, songs, podcasts, books, and tv shows.
 
